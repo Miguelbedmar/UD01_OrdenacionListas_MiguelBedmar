@@ -11,8 +11,13 @@ class GenerarDatos{
         return IntArray(tamanio){ Random.nextInt(0,valorMaximo) }
     }
 
+    fun invertirListaCreada (tamanio: Int): IntArray{
+        return IntArray(tamanio){tamanio-it}
+    }
+
 }
 class EvaluadorAlgoritmos{
+
     fun comparativa(nombreLista:String,
                     dato: IntArray,
                     algoritmo:List<AlgoritmoOrdenacion>){
