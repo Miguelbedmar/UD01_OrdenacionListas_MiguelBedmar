@@ -1,12 +1,20 @@
 package modelo
 import kotlin.random.Random
 import kotlin.system.measureNanoTime
-interface AlgoritmoOrdenacion{
+
+/**Creacion de interfaces y clases
+ * Kotlin permite que en un solo fichero se pueden crear
+ * multiples clases y interfaces sin necesidad de crear
+ * individuales esto permite crear un ficheroque abarque
+ * clases e interfaces que tengan relacion entre ellas.*/
+
+
+interface AlgoritmoOrdenacion{  // Creamos la interfaz que   define el nombre del algoritmo y la funcion ordenar
     val nombre: String
     fun ordenar(datos: IntArray)
 }
 
-class GenerarDatos{
+class GenerarDatos{ // 
     fun crearListaAleatoria(tamanio: Int, valorMaximo:Int=100_000): IntArray{
         return IntArray(tamanio){ Random.nextInt(0,valorMaximo) }
     }

@@ -14,7 +14,7 @@ import modelo.GenerarDatos
 //TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 fun main() {
-
+mostrarResultadoAlgoritmo()
 }
 
 private fun mostrarResultadoAlgoritmo(){
@@ -38,9 +38,6 @@ private fun mostrarResultadoAlgoritmo(){
     val listaGeneradaOriginal=datosGenerados.crearListaAleatoria(tamanio)
     val listaGeneradaInversa=datosGenerados.invertirListaCreada(tamanio)
 
-
-
-
-
-
+    evaluador.comparativa("Lista Aleatoria: ",listaGeneradaOriginal,algoritmoLista)
+    evaluador.comparativa("Lista Aleatoria: ",listaGeneradaInversa,algoritmoLista)
 }
