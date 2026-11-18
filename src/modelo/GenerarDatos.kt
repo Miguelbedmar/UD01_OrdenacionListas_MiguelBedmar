@@ -30,8 +30,7 @@ class EvaluadorAlgoritmos{
             val tiempoMs = tiempoNanoSegundo/1_000_000
             val listaOrdenada = isOrdenado(copiaDato)
 
-            println()
-
+            println("$-20 |Tiempo: %10.4ms  | ListaOrdenada:  %b".format(algoritmoOrdenacion.nombre, tiempoMs, listaOrdenada))
         }
     }
 
