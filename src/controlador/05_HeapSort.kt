@@ -2,17 +2,20 @@ package controlador
 
 import modelo.AlgoritmoOrdenacion
 
+/**HeapSort recibe una lista  y la convierte en un arbol binario pero tiene un detalle importante  y es que
+ * el padre siempre será mayor que los hijos  es decir si el padre es  A  y los hijos B y C  A siempre sera mayor
+ * que sus hijos */
 class `05_HeapSort` : AlgoritmoOrdenacion {
     override val nombre: String ="HeapSort"
 
     override fun <T : Comparable<T>> ordenar(lista: MutableList<T>) {
         val n =lista.size
 
-        for(i in n /2-1 downTo 0) {
-            organizarArbol(lista,n,i)
+        for(i in n /2-1 downTo 0) { //Recorremos la lista desde la primera mitad hacia atras
+            organizarArbol(lista,n,i) // Llamamos a organizarArbol
         }
 
-        for(i in n-1 downTo 1) {
+        for(i in n-1 downTo 1) { //Intercambiamos el primer elemento   con el último elemento de la lista
             intercambiar(lista,0,i)
             organizarArbol(lista,i,0)
         }

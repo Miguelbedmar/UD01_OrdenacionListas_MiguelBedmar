@@ -47,7 +47,7 @@ fun <T : Comparable<T>> comparativa ( algoritmo : AlgoritmoOrdenacion, listaTitu
 
 
 
-class Evaluador{ // Se encarga de comprobar y de evaluar que los diferentes algoritmo funciona correctamente 
+class Evaluador{ // Se encarga de comprobar y de evaluar que los diferentes algoritmo funciona correctamente
 
     fun <T : Comparable<T>> comparativa(nombreLista:String,
                                      dato: MutableList<T>,
@@ -58,20 +58,20 @@ class Evaluador{ // Se encarga de comprobar y de evaluar que los diferentes algo
         for (algoritmoOrdenacion in algoritmo){
             val copiaDato=dato.toMutableList()
 
-            val tiempoNanoSegundo=System.nanoTime()
+            val tiempoNanoSegundo=System.nanoTime()  // Obtenemos el tiempo en formato nano antes de la ejecucion
             algoritmoOrdenacion.ordenar(copiaDato)
-            val finTiempo = System.nanoTime()
+            val finTiempo = System.nanoTime() // Despues de la ejecucion
 
             val tiempoNs =   finTiempo -tiempoNanoSegundo
             val tiempoMs = tiempoNs/1_000_000.0
             val listaOrdenada = isOrdenado(copiaDato)
 
-            println("%-18s | Tiempo: %10d ns  (%8.4f ms ) | ListaOrdenada:  %b".format(algoritmoOrdenacion.nombre,tiempoNs ,tiempoMs, listaOrdenada))
+            println("%-18s | Tiempo: %10d ns  (%8.4f ms ) | ListaOrdenada:  %b".format(algoritmoOrdenacion.nombre,tiempoNs ,tiempoMs, listaOrdenada)) // Imprimimos los resultados  en formato de columna
         }
     }
 
-    private fun <T: Comparable<T>> isOrdenado (list: MutableList<T>): Boolean{
-        for( i in 0 until list.size-1){
+    private fun <T: Comparable<T>> isOrdenado (list: MutableList<T>): Boolean{ // Metodo  booleano que verifica que los diferentes elementos de la lista
+        for( i in 0 until list.size-1){ // Se encuentren orden ascendente
             if(list[i]>list[i+1]) return false
 
         }

@@ -28,11 +28,7 @@ private fun mostrarResultadoAlgoritmo(){
         `03_PancakeSort`(),
         `01_InsertionSort`(),
         `05_HeapSort`()
-    ) as List<AlgoritmoOrdenacion> // realizamo casteamos  de lita inmutable a lista
-
-
-
-    val tamanio =5_000 //Tamaño fijo
+    ) //Se ha eliminado un cast innecesario
 
     val listaGeneradaVehiculo=datosGenerados.obtenerListaVehiculos()
     val listaGeneradaNumerica=datosGenerados.obtenerListaNumerica()
