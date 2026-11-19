@@ -32,13 +32,13 @@ class GenerarDatos {
      }
 }
 fun <T : Comparable<T>> comparativa ( algoritmo : AlgoritmoOrdenacion, listaTitulo:String,original: MutableList<T> ) {
-    val copiaDato = original.toMutableList()
+    val copiaDato = original.toMutableList() // Realizamos una copia de los datos originales de la lista
 
     println("${algoritmo.nombre} | $listaTitulo")
     println("Lista Original : $original")
-    val inicio = System.nanoTime()
+    val inicio = System.nanoTime() // Obtenemos los nanos segundos inciales
     algoritmo.ordenar(copiaDato)
-    val final = System.nanoTime()
+    val final = System.nanoTime() // Obtenemos los nanos segundos finales
 
     println("Lista ordenada : $copiaDato")
     println(" Tiempo : ${final - inicio} ns (${(final - inicio) / 1_000_000.0} ms)\n")
@@ -47,7 +47,7 @@ fun <T : Comparable<T>> comparativa ( algoritmo : AlgoritmoOrdenacion, listaTitu
 
 
 
-class Evaluador{
+class Evaluador{ // Se encarga de comprobar y de evaluar que los diferentes algoritmo funciona correctamente 
 
     fun <T : Comparable<T>> comparativa(nombreLista:String,
                                      dato: MutableList<T>,
