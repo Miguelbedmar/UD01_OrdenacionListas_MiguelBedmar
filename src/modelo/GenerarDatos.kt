@@ -13,7 +13,7 @@ interface AlgoritmoOrdenacion{  // Creamos la interfaz que   define el nombre de
     val nombre: String
     fun <T : Comparable<T>> ordenar(lista: MutableList<T>)}
 
-object GenerarDatos {
+class GenerarDatos {
 
     fun obtenerListaVehiculos(): MutableList<String> = mutableListOf(
         "Toyota Corolla", "Ford Mustang", "Seat Ibiza", "Volkswagen Golf", "Renault Clio",
@@ -31,7 +31,7 @@ object GenerarDatos {
         return (1..10000).shuffled().take(100).toMutableList()
     }
 }
-fun <T : Comparable<T>> testearAlgoritmo ( algoritmo : AlgoritmoOrdenacion, listaTitulo:String,original: MutableList<T> ) {
+fun <T : Comparable<T>> comparativa ( algoritmo : AlgoritmoOrdenacion, listaTitulo:String,original: MutableList<T> ) {
     val copiaDato = original.toMutableList()
 
     println("${algoritmo.nombre} | $listaTitulo")
@@ -47,10 +47,10 @@ fun <T : Comparable<T>> testearAlgoritmo ( algoritmo : AlgoritmoOrdenacion, list
 
 
 
-class EvaluadorAlgoritmos{
+class Evaluador{
 
     fun <T : Comparable<T>> comparativa(nombreLista:String,
-                                     dato: IntArray,
+                                     dato: MutableList<T>,
                                      algoritmo:List<AlgoritmoOrdenacion>){
 
         println("Resultados  de $nombreLista (${dato.size} elementos)")

@@ -4,9 +4,10 @@ import modelo.AlgoritmoOrdenacion
 
 class `04_QuickSort` : AlgoritmoOrdenacion {
     override val nombre: String = "QuickSort"
+
     override fun <T : Comparable<T>> ordenar(lista: MutableList<T>) {
-        if(datos.size <=1) return
-        quickSortRecursividad(datos, 0, datos.size - 1)
+        if(lista.size <=1) return
+        quickSortRecursividad(lista, 0, lista.size - 1)
 
     }
 

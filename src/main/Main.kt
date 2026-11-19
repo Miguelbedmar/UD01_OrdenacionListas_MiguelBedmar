@@ -8,7 +8,7 @@ import controlador.`03_PancakeSort`
 import controlador.`04_QuickSort`
 import controlador.`05_HeapSort`
 import modelo.AlgoritmoOrdenacion
-import modelo.EvaluadorAlgoritmos
+import modelo.Evaluador
 import modelo.GenerarDatos
 
 //TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
@@ -19,7 +19,7 @@ mostrarResultadoAlgoritmo()
 /**Funcion para mostrar cada resultado de los diferentes algoritmos **/
 private fun mostrarResultadoAlgoritmo(){
     val datosGenerados = GenerarDatos() // Guardamos los datos que se han generado
-    val evaluador= EvaluadorAlgoritmos()
+    val evaluador= Evaluador()
 
 
 
@@ -35,9 +35,9 @@ private fun mostrarResultadoAlgoritmo(){
 
     val tamanio =5_000 //Tamaño fijo
 
-    val listaGeneradaOriginal=datosGenerados.crearListaAleatoria(tamanio)
-    val listaGeneradaInversa=datosGenerados.invertirListaCreada(tamanio)
+    val listaGeneradaVehiculo=datosGenerados.obtenerListaVehiculos()
+    val listaGeneradaNumerica=datosGenerados.obtenerListaNumerica()
 
-    evaluador.comparativa("Lista Aleatoria: ",listaGeneradaOriginal,algoritmoLista)
-    evaluador.comparativa("Lista Aleatoria: ",listaGeneradaInversa,algoritmoLista)
+    evaluador.comparativa("Lista Vehiculo: ",listaGeneradaVehiculo,algoritmoLista)
+    evaluador.comparativa("Lista Numerica: ",listaGeneradaNumerica,algoritmoLista)
 }
