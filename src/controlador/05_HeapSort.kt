@@ -28,18 +28,20 @@ class `05_HeapSort` : AlgoritmoOrdenacion {
     private fun <T: Comparable<T>> organizarArbol(arr: MutableList<T>,n:Int,raiz: Int) {
         var padreMayor =raiz
 
-        val izq = 2* raiz +1
-        val dec =2*raiz +2
+        val izq = 2* raiz +1 // Comparamos el nodo padre  con el hijo izquierdo
+        val dec =2*raiz +2 // Misma comapracion con el hijo derecho
 
+        /**Comprobamos si alguno de los hijos es mayor  en el caso de que sea correcto  el metodo se llama a si misma
+         * para que el arbol tenga la jerarquia correcta **/
         if( izq<n&& arr[izq]> arr[padreMayor]) padreMayor = izq
         if (dec <n && arr[dec]> arr[padreMayor]) padreMayor = dec
 
         if( padreMayor != raiz){
-        intercambiar(arr, raiz, padreMayor)
-        organizarArbol(arr, n, padreMayor)
+        intercambiar(arr, raiz, padreMayor) // Intercambiamos el hijo mayor con el padre para mantener la jerarquia
+        organizarArbol(arr, n, padreMayor) // Llamada recursiva
         }
     }
-
+    //Funcion auxiliar que permite permutar los datos  de dos posiciones de la lista con una constante  temporal.
     private fun <T> intercambiar ( arr: MutableList<T>, i:Int, j: Int) {
         val temp = arr[i]
         arr[i]= arr[j]
