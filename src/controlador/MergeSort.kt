@@ -6,8 +6,8 @@ class MergeSort : AlgoritmoOrdenacion {
     override val nombre: String = "MergeSort"
 
     override fun ordenar(datos: IntArray) {
-        if (datos.size <= 1) return invertir(datos,0,datos.size-1)
-
+        if (datos.size <= 1) return
+        invertir(datos,0,datos.size-1)
     }
 
     private fun invertir(arr: IntArray, izq: Int, dec: Int) {
@@ -33,7 +33,7 @@ class MergeSort : AlgoritmoOrdenacion {
 
 
         var i = 0
-        var k = 0
+        var k = izq
         var j = 0
 
         while (i < n1 &&j<n2) {

@@ -12,9 +12,7 @@ class PancakeSort : AlgoritmoOrdenacion {
             val indiceMaximo = encontrarIndiceMaximo(datos,tamanioActual)
 
             if(indiceMaximo != tamanioActual-1) {
-                if(indiceMaximo!=0) voltear(datos,tamanioActual)
-
-
+                if(indiceMaximo!=0) voltear(datos,indiceMaximo)
                 voltear(datos,tamanioActual -1)
 
             }
@@ -24,7 +22,7 @@ class PancakeSort : AlgoritmoOrdenacion {
 
     private fun voltear(arr:IntArray,k:Int) {
         var comienzo=0
-        var final =0
+        var final =k
 
         while(comienzo < final){
             val temp = arr[comienzo]

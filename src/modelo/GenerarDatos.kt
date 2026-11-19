@@ -37,13 +37,12 @@ class EvaluadorAlgoritmos{
 
             val tiempoNanoSegundo=measureNanoTime {
                 algoritmoOrdenacion.ordenar(copiaDato)
-
             }
 
-            val tiempoMs = tiempoNanoSegundo/1_000_000
+            val tiempoMs = tiempoNanoSegundo/1_000_000.0
             val listaOrdenada = isOrdenado(copiaDato)
 
-            println("$-20 |Tiempo: %10.4ms  | ListaOrdenada:  %b".format(algoritmoOrdenacion.nombre, tiempoMs, listaOrdenada))
+            println("%-20s | Tiempo: %10.4f ms  | ListaOrdenada:  %b".format(algoritmoOrdenacion.nombre, tiempoMs, listaOrdenada))
         }
     }
 

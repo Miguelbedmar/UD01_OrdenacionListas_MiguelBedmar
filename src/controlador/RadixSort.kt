@@ -33,7 +33,7 @@ class RadixSort : AlgoritmoOrdenacion {
         val salida = IntArray(n)
         val digitoConteo = IntArray(10)
 
-        for(i in 1 until 10){
+        for(i in 0 until n){
             val digito =(arr[i]/exp)%10
             digitoConteo[digito]++
         }
@@ -43,7 +43,8 @@ class RadixSort : AlgoritmoOrdenacion {
 
         for(i in n -1 downTo 0){
             val digito = (arr[i]/exp)%10
-            salida[digitoConteo[digito]]--
+            salida[digitoConteo[digito]-1]=arr[i]
+            digitoConteo[digito]--
         }
 
         for ( i in 0 until n ){

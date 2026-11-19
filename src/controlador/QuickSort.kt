@@ -7,7 +7,8 @@ class QuickSort : AlgoritmoOrdenacion {
 
 
     override fun ordenar(datos: IntArray) {
-
+        if(datos.size <=1) return
+        quickSortRecursividad(datos, 0, datos.size - 1)
     }
 
     private fun quickSortRecursividad(arr: IntArray, bajo: Int, alto: Int) {
@@ -22,14 +23,14 @@ class QuickSort : AlgoritmoOrdenacion {
         val pivo = arr[alto]
         var i = bajo - 1
 
-        for (j in bajo until bajo) {
+        for (j in bajo until alto) {
             if (arr[j] <= pivo) {
                 i++
                 intercambio(arr, i, j)
             }
 
         }
-        intercambio(arr, i + 1, bajo)
+        intercambio(arr, i + 1, alto)
         return i + 1
     }
 
