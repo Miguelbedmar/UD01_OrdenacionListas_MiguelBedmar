@@ -6,7 +6,7 @@ import controlador.`01_InsertionSort`
 import controlador.`02_MergeSort`
 import controlador.`03_PancakeSort`
 import controlador.`04_QuickSort`
-import controlador.`05_RadixSort`
+import controlador.`05_HeapSort`
 import modelo.AlgoritmoOrdenacion
 import modelo.EvaluadorAlgoritmos
 import modelo.GenerarDatos
@@ -28,7 +28,7 @@ private fun mostrarResultadoAlgoritmo(){
         `02_MergeSort`(),
         `03_PancakeSort`(),
         `01_InsertionSort`(),
-        `05_RadixSort`()
+        `05_HeapSort`()
     ) as List<AlgoritmoOrdenacion> // realizamo casteamos  de lita inmutable a lista
 
 
