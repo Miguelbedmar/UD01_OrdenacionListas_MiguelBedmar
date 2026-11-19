@@ -4,14 +4,15 @@ import modelo.AlgoritmoOrdenacion
 
 class `04_QuickSort` : AlgoritmoOrdenacion {
     override val nombre: String = "QuickSort"
-
-
-    override fun ordenar(datos: IntArray) {
+    override fun <T : Comparable<T>> ordenar(lista: MutableList<T>) {
         if(datos.size <=1) return
         quickSortRecursividad(datos, 0, datos.size - 1)
+
     }
 
-    private fun quickSortRecursividad(arr: IntArray, bajo: Int, alto: Int) {
+
+
+    private fun <T : Comparable<T>> quickSortRecursividad(arr: MutableList<T>, bajo: Int, alto: Int) {
         if (bajo < alto) {
             val indiPivo = particion(arr, bajo, alto)
             quickSortRecursividad(arr, bajo, indiPivo - 1)
@@ -19,7 +20,7 @@ class `04_QuickSort` : AlgoritmoOrdenacion {
         }
     }
 
-    private fun particion(arr: IntArray, bajo: Int, alto: Int): Int {
+    private fun <T : Comparable<T>> particion(arr: MutableList<T>, bajo: Int, alto: Int): Int {
         val pivo = arr[alto]
         var i = bajo - 1
 
@@ -34,7 +35,7 @@ class `04_QuickSort` : AlgoritmoOrdenacion {
         return i + 1
     }
 
-    private fun intercambio(arr: IntArray, i: Int, j: Int) {
+    private fun  <T : Comparable<T>> intercambio(arr: MutableList<T>, i: Int, j: Int) {
         val temp = arr[i]
         arr[i] = arr[j]
         arr[j] = temp
