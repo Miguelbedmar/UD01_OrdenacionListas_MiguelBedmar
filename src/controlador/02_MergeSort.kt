@@ -4,13 +4,17 @@ import modelo.AlgoritmoOrdenacion
 
 class `02_MergeSort` : AlgoritmoOrdenacion {
     override val nombre: String = "MergeSort"
+    override fun <T : Comparable<T>> ordenar(lista: MutableList<T>) {
+        if (lista.size <= 1) return
+        invertir(lista,0,lista.size-1)
 
-    override fun ordenar(datos: IntArray) {
-        if (datos.size <= 1) return
-        invertir(datos,0,datos.size-1)
+
     }
 
-    private fun invertir(arr: IntArray, izq: Int, dec: Int) {
+
+
+
+    private fun <T: Comparable<T>> invertir(arr: MutableList<T>, izq: Int, dec: Int) {
         if (izq < dec) {
             val medio = izq + (dec - izq) / 2
             invertir(arr, izq, medio)
@@ -20,17 +24,12 @@ class `02_MergeSort` : AlgoritmoOrdenacion {
 
     }
 
-    private fun mezclaMergeSort(arr: IntArray, izq: Int, medio: Int, dec: Int) {
+    private fun <T: Comparable<T>> mezclaMergeSort(arr: MutableList<T>, izq: Int, medio: Int, dec: Int) {
         val n1 = medio - izq + 1
         val n2 = dec - medio
 
-        val izqArray = IntArray(n1)
-        val decArray = IntArray(n2)
-
-
-        for (i in 0 until n1) izqArray[i] = arr[izq + i]
-        for (j in 0 until n2) decArray[j] = arr[medio + 1 + j]
-
+        val izqArray = arr.subList(izq,izq +n1).toMutableList()
+        val decArray =arr.subList(medio+1,medio+1+n2).toMutableList()
 
         var i = 0
         var k = izq

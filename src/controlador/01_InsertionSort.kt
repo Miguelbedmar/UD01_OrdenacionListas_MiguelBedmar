@@ -5,20 +5,20 @@ import modelo.AlgoritmoOrdenacion
 class `01_InsertionSort`() : AlgoritmoOrdenacion {
 
     override val nombre: String = "Insertion Sort" // INdicamos el nombre del algoritmo
-
-
-    override fun ordenar(datos: IntArray) {
-        val n = datos.size
+    override fun <T : Comparable<T>> ordenar(lista: MutableList<T>) {
+        val n = lista.size
 
         for (i in 1 until n) {
-            val llave = datos[i]
+            val llave = lista[i]
             var j = i - 1
 
-            while (j >= 0 && datos[j] > llave) {
-                datos[j + 1] = datos[j]
+            while (j >= 0 && lista[j] > llave) {
+                lista[j + 1] = lista[j]
                 j--
             }
-            datos[j + 1] = llave
+            lista[j + 1] = llave
         }
     }
+
+
 }
