@@ -14,7 +14,7 @@ interface AlgoritmoOrdenacion{  // Creamos la interfaz que   define el nombre de
     fun ordenar(datos: IntArray)
 }
 
-class GenerarDatos{ // 
+class GenerarDatos{ //
     fun crearListaAleatoria(tamanio: Int, valorMaximo:Int=100_000): IntArray{
         return IntArray(tamanio){ Random.nextInt(0,valorMaximo) }
     }
