@@ -11,8 +11,7 @@ import modelo.AlgoritmoOrdenacion
 import modelo.Evaluador
 import modelo.GenerarDatos
 
-//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
-// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
+ // Programa Principal
 fun main() {
 mostrarResultadoAlgoritmo()
 }
@@ -38,6 +37,6 @@ private fun mostrarResultadoAlgoritmo(){
     val listaGeneradaVehiculo=datosGenerados.obtenerListaVehiculos()
     val listaGeneradaNumerica=datosGenerados.obtenerListaNumerica()
 
-    evaluador.comparativa("Lista Vehiculo: ",listaGeneradaVehiculo,algoritmoLista)
-    evaluador.comparativa("Lista Numerica: ",listaGeneradaNumerica,algoritmoLista)
+    evaluador.comparativa("Lista Vehiculo: ",listaGeneradaVehiculo,algoritmoLista) // Lista de vehiculos
+    evaluador.comparativa("Lista Numerica: ",listaGeneradaNumerica,algoritmoLista) // Lista de digitos
 }

@@ -15,7 +15,7 @@ interface AlgoritmoOrdenacion{  // Creamos la interfaz que   define el nombre de
 
 class GenerarDatos {
 
-    fun obtenerListaVehiculos(): MutableList<String> = mutableListOf(
+    fun obtenerListaVehiculos(): MutableList<String> = mutableListOf( // Creacion de una lista de vehiculos con  40 vehiculos
         "Toyota Corolla", "Ford Mustang", "Seat Ibiza", "Volkswagen Golf", "Renault Clio",
         "Peugeot 208", "BMW Serie 3", "Audi A4", "Mercedes Clase C", "Hyundai Tucson",
         "Kia Sportage", "Nissan Qashqai", "Mazda CX-5", "Honda Civic", "Subaru Impreza",
@@ -28,8 +28,8 @@ class GenerarDatos {
 
 
     fun obtenerListaNumerica(): MutableList<Int> {
-        return (1..10000).shuffled().take(100).toMutableList()
-    }
+        return (1..10000).shuffled().take(100).toMutableList() // Generacion de una lista de entre 1 a 10.000 elementos
+     }
 }
 fun <T : Comparable<T>> comparativa ( algoritmo : AlgoritmoOrdenacion, listaTitulo:String,original: MutableList<T> ) {
     val copiaDato = original.toMutableList()

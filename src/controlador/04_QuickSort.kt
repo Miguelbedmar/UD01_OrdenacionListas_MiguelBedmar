@@ -2,11 +2,13 @@ package controlador
 
 import modelo.AlgoritmoOrdenacion
 
+/**Es un algoritmo basado en divide y venceras que divide la lista y la ordena de menor a mayor
+ * donde los elementos menores  se quedaran hacia la izquierda y los mayores a la derecha **/
 class `04_QuickSort` : AlgoritmoOrdenacion {
     override val nombre: String = "QuickSort"
 
     override fun <T : Comparable<T>> ordenar(lista: MutableList<T>) {
-        if(lista.size <=1) return
+        if(lista.size <=1) return // Comprobamos que la lista contenga al menos 1 elemento en el caso de que cumpla finaliza porque  ya estaria ordenada
         quickSortRecursividad(lista, 0, lista.size - 1)
 
     }
