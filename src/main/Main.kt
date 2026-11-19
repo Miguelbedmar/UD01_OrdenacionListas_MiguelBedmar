@@ -16,24 +16,24 @@ import modelo.GenerarDatos
 fun main() {
 mostrarResultadoAlgoritmo()
 }
-
+/**Funcion para mostrar cada resultado de los diferentes algoritmos **/
 private fun mostrarResultadoAlgoritmo(){
-    val datosGenerados = GenerarDatos()
+    val datosGenerados = GenerarDatos() // Guardamos los datos que se han generado
     val evaluador= EvaluadorAlgoritmos()
 
 
 
-    val algoritmoLista: List<AlgoritmoOrdenacion> = listOf(
+    val algoritmoLista: List<AlgoritmoOrdenacion> = listOf( // lista inmutable que contiene los diferentes algoritmos
         QuickSort(),
         MergeSort(),
         PancakeSort(),
         InsertionSort(),
         RadixSort()
-    ) as List<AlgoritmoOrdenacion>
+    ) as List<AlgoritmoOrdenacion> // realizamo casteamos  de lita inmutable a lista
 
 
 
-    val tamanio =5_000
+    val tamanio =5_000 //Tamaño fijo
 
     val listaGeneradaOriginal=datosGenerados.crearListaAleatoria(tamanio)
     val listaGeneradaInversa=datosGenerados.invertirListaCreada(tamanio)
