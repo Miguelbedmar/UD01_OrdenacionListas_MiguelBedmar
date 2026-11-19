@@ -11,44 +11,68 @@ import kotlin.system.measureNanoTime
 
 interface AlgoritmoOrdenacion{  // Creamos la interfaz que   define el nombre del algoritmo y la funcion ordenar
     val nombre: String
-    fun ordenar(datos: IntArray)
+    fun <T : Comparable<T>> ordenar(lista: MutableList<T>)}
+
+object GenerarDatos {
+
+    fun obtenerListaVehiculos(): MutableList<String> = mutableListOf(
+        "Toyota Corolla", "Ford Mustang", "Seat Ibiza", "Volkswagen Golf", "Renault Clio",
+        "Peugeot 208", "BMW Serie 3", "Audi A4", "Mercedes Clase C", "Hyundai Tucson",
+        "Kia Sportage", "Nissan Qashqai", "Mazda CX-5", "Honda Civic", "Subaru Impreza",
+        "Volvo XC60", "Fiat 500", "Alfa Romeo Giulia", "Citroën C4", "Opel Corsa",
+        "Skoda Octavia", "Dacia Sandero", "Tesla Model 3", "Porsche 911", "Ferrari Roma",
+        "Lamborghini Huracán", "Jeep Wrangler", "Land Rover Defender", "Mini Cooper", "Lexus NX",
+        "Suzuki Swift", "Mitsubishi Outlander", "Cupra Formentor", "Jaguar F-Pace", "Maserati Ghibli",
+        "Aston Martin Vantage", "Chevrolet Camaro", "Dodge Charger", "Lotus Elise", "Bentley Continental"
+    )
+
+
+    fun obtenerListaNumerica(): MutableList<Int> {
+        return (1..10000).shuffled().take(100).toMutableList()
+    }
+}
+fun <T : Comparable<T>> testearAlgoritmo ( algoritmo : AlgoritmoOrdenacion, listaTitulo:String,original: MutableList<T> ) {
+    val copiaDato = original.toMutableList()
+
+    println("${algoritmo.nombre} | $listaTitulo")
+    println("Lista Original : $original")
+    val inicio = System.nanoTime()
+    algoritmo.ordenar(copiaDato)
+    val final = System.nanoTime()
+
+    println("Lista ordenada : $copiaDato")
+    println(" Tiempo : ${final - inicio} ns (${(final - inicio) / 1_000_000.0} ms)\n")
 }
 
-class GenerarDatos{ //
-    fun crearListaAleatoria(tamanio: Int, valorMaximo:Int=100_000): IntArray{
-        return IntArray(tamanio){ Random.nextInt(0,valorMaximo) }
-    }
 
-    fun invertirListaCreada (tamanio: Int): IntArray{
-        return IntArray(tamanio){tamanio-it}
-    }
 
-}
+
 class EvaluadorAlgoritmos{
 
-    fun comparativa(nombreLista:String,
-                    dato: IntArray,
-                    algoritmo:List<AlgoritmoOrdenacion>){
+    fun <T : Comparable<T>> comparativa(nombreLista:String,
+                                     dato: IntArray,
+                                     algoritmo:List<AlgoritmoOrdenacion>){
 
         println("Resultados  de $nombreLista (${dato.size} elementos)")
 
         for (algoritmoOrdenacion in algoritmo){
-            val copiaDato=dato.copyOf()
+            val copiaDato=dato.toMutableList()
 
-            val tiempoNanoSegundo=measureNanoTime {
-                algoritmoOrdenacion.ordenar(copiaDato)
-            }
+            val tiempoNanoSegundo=System.nanoTime()
+            algoritmoOrdenacion.ordenar(copiaDato)
+            val finTiempo = System.nanoTime()
 
-            val tiempoMs = tiempoNanoSegundo/1_000_000.0
+            val tiempoNs = tiempoNanoSegundo - finTiempo
+            val tiempoMs = tiempoNs/1_000_000.0
             val listaOrdenada = isOrdenado(copiaDato)
 
-            println("%-20s | Tiempo: %10.4f ms  | ListaOrdenada:  %b".format(algoritmoOrdenacion.nombre, tiempoMs, listaOrdenada))
+            println("%-18s | Tiempo: %10d ns  (%8.4f ms ) | ListaOrdenada:  %b".format(algoritmoOrdenacion.nombre,tiempoNs ,tiempoMs, listaOrdenada))
         }
     }
 
-    private fun  isOrdenado (arr:IntArray): Boolean{
-        for( i in 0 until arr.size-1){
-            if(arr[i]>arr[i+1]) return false
+    private fun <T: Comparable<T>> isOrdenado (list: MutableList<T>): Boolean{
+        for( i in 0 until list.size-1){
+            if(list[i]>list[i+1]) return false
 
         }
         return true
