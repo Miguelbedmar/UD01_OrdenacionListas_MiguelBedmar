@@ -2,7 +2,7 @@ package controlador
 
 import modelo.AlgoritmoOrdenacion
 
-class InsertionSort() : AlgoritmoOrdenacion {
+class `01_InsertionSort`() : AlgoritmoOrdenacion {
 
     override val nombre: String = "Insertion Sort" // INdicamos el nombre del algoritmo
 

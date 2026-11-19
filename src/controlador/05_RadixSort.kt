@@ -1,9 +1,8 @@
 package controlador
 
 import modelo.AlgoritmoOrdenacion
-import kotlin.rem
 
-class RadixSort : AlgoritmoOrdenacion {
+class `05_RadixSort` : AlgoritmoOrdenacion {
     override val nombre: String ="RadixSort"
 
 

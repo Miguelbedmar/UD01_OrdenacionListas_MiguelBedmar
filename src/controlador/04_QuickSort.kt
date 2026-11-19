@@ -2,7 +2,7 @@ package controlador
 
 import modelo.AlgoritmoOrdenacion
 
-class QuickSort : AlgoritmoOrdenacion {
+class `04_QuickSort` : AlgoritmoOrdenacion {
     override val nombre: String = "QuickSort"
 
 

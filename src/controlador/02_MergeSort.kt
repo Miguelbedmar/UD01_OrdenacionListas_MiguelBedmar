@@ -2,7 +2,7 @@ package controlador
 
 import modelo.AlgoritmoOrdenacion
 
-class MergeSort : AlgoritmoOrdenacion {
+class `02_MergeSort` : AlgoritmoOrdenacion {
     override val nombre: String = "MergeSort"
 
     override fun ordenar(datos: IntArray) {

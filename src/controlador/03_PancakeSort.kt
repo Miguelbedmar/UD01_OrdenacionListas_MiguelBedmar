@@ -2,7 +2,7 @@ package controlador
 
 import modelo.AlgoritmoOrdenacion
 
-class PancakeSort : AlgoritmoOrdenacion {
+class `03_PancakeSort` : AlgoritmoOrdenacion {
     override val nombre: String = "PancakeSort"
 
     override fun ordenar(datos: IntArray) {

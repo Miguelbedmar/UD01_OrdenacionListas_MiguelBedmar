@@ -2,11 +2,11 @@
 
 package main
 
-import controlador.InsertionSort
-import controlador.MergeSort
-import controlador.PancakeSort
-import controlador.QuickSort
-import controlador.RadixSort
+import controlador.`01_InsertionSort`
+import controlador.`02_MergeSort`
+import controlador.`03_PancakeSort`
+import controlador.`04_QuickSort`
+import controlador.`05_RadixSort`
 import modelo.AlgoritmoOrdenacion
 import modelo.EvaluadorAlgoritmos
 import modelo.GenerarDatos
@@ -24,11 +24,11 @@ private fun mostrarResultadoAlgoritmo(){
 
 
     val algoritmoLista: List<AlgoritmoOrdenacion> = listOf( // lista inmutable que contiene los diferentes algoritmos
-        QuickSort(),
-        MergeSort(),
-        PancakeSort(),
-        InsertionSort(),
-        RadixSort()
+        `04_QuickSort`(),
+        `02_MergeSort`(),
+        `03_PancakeSort`(),
+        `01_InsertionSort`(),
+        `05_RadixSort`()
     ) as List<AlgoritmoOrdenacion> // realizamo casteamos  de lita inmutable a lista
 
 
