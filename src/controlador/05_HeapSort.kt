@@ -3,9 +3,21 @@ package controlador
 import modelo.AlgoritmoOrdenacion
 
 class `05_HeapSort` : AlgoritmoOrdenacion {
-    override val nombre: String ="05_HeapSort"
+    override val nombre: String ="HeapSort"
 
     override fun <T : Comparable<T>> ordenar(lista: MutableList<T>) {
+        val n =lista.size
+
+        for(i in n /2-1 downTo 0) {
+            organizarArbol(lista,n,i)
+        }
+
+        for(i in n-1 downTo 1) {
+            intercambiar(lista,0,i)
+            organizarArbol(lista,i,0)
+        }
+    }
+
     }
 
 
@@ -31,4 +43,3 @@ class `05_HeapSort` : AlgoritmoOrdenacion {
         arr[j] = temp
     }
 
-}

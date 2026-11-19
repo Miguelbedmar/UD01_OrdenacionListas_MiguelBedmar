@@ -62,7 +62,7 @@ class Evaluador{
             algoritmoOrdenacion.ordenar(copiaDato)
             val finTiempo = System.nanoTime()
 
-            val tiempoNs = tiempoNanoSegundo - finTiempo
+            val tiempoNs =   finTiempo -tiempoNanoSegundo
             val tiempoMs = tiempoNs/1_000_000.0
             val listaOrdenada = isOrdenado(copiaDato)
 
